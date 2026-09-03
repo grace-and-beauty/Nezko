@@ -26,7 +26,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='21' fill='%23161616' stroke='%23C6FF00' stroke-width='1.4'/%3E%3Cline x1='7' y1='15' x2='14' y2='15' stroke='%23C6FF00' stroke-width='2.2' stroke-linecap='round'/%3E%3Cline x1='6' y1='22' x2='15' y2='22' stroke='%23C6FF00' stroke-width='2.4' stroke-linecap='round'/%3E%3Cline x1='7' y1='29' x2='14' y2='29' stroke='%23C6FF00' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpolyline points='18,13 29,22 18,31' fill='none' stroke='%23C6FF00' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,6 +70,11 @@
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
+  body::after{
+    content:'';
+    position:fixed;inset:0;pointer-events:none;z-index:9990;
+    background:repeating-linear-gradient(to bottom, rgba(245,245,240,0.025) 0px, rgba(245,245,240,0.025) 1px, transparent 1px, transparent 3px);
+  }
   img,svg{display:block;max-width:100%}
   a{color:inherit;text-decoration:none}
   ul{list-style:none}
@@ -111,7 +116,7 @@
   .eyebrow{
     display:inline-flex;
     align-items:center;
-    gap:6px;
+    gap:9px;
     margin-bottom:16px;
     font-family:'Inter',sans-serif;
     font-weight:600;
@@ -120,11 +125,13 @@
     text-transform:uppercase;
     color:var(--muted);
   }
-  .eyebrow .ticks{display:flex;align-items:center;gap:3px}
-  .eyebrow .ticks span{display:block;height:2px;background:var(--accent);border-radius:2px}
-  .eyebrow .ticks span:nth-child(1){width:4px;opacity:0.35}
-  .eyebrow .ticks span:nth-child(2){width:8px;opacity:0.65}
-  .eyebrow .ticks span:nth-child(3){width:14px;opacity:1}
+  .eyebrow .prompt{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:700;
+    color:var(--accent);
+    font-size:15px;
+    letter-spacing:0;
+  }
 
   .section-head{max-width:640px;margin-bottom:40px}
   .section-head p{color:var(--muted);font-size:17px;margin-top:14px}
@@ -237,7 +244,6 @@
   /* ---------- hero ---------- */
 
   @keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  @keyframes float{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-14px) rotate(var(--r,0deg))}}
 
   .hero{padding:104px 0 88px;position:relative}
   .hero .container{
@@ -246,7 +252,7 @@
     justify-content:space-between;
     gap:48px;
   }
-  .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:28px;max-width:600px}
+  .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:28px;max-width:560px}
   .hero h1{font-size:clamp(36px,5.5vw,58px);opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .05s)}
   .hero h1 em{font-style:normal;color:var(--accent)}
   .hero .lede{font-size:18px;color:var(--muted);opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .16s)}
@@ -261,43 +267,49 @@
   .hero-meta div strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;color:var(--heading)}
   .hero-meta div span{font-size:13.5px;color:var(--muted)}
 
-  .hero-visual{
-    position:relative;flex-shrink:0;
-    width:340px;height:360px;
+  .terminal{
+    flex-shrink:0;width:500px;
+    background:#000;border:1px solid var(--line-strong);border-radius:var(--radius-l);
+    overflow:hidden;transform:rotate(-1.2deg);
     opacity:0;animation:fadeInUp .8s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .22s);
   }
-  .hero-visual .case-mock{
-    --r:0deg;
-    position:absolute;width:270px;aspect-ratio:16/11;
-    border:1px solid var(--line-strong);
-    animation:float 5.5s ease-in-out infinite;
-    transform:rotate(var(--r));
-    padding:16px;gap:10px;
+  .terminal-bar{display:flex;align-items:center;gap:18px;padding:16px 20px;border-bottom:1px solid var(--line)}
+  .terminal-bar .dots{display:flex;gap:9px}
+  .terminal-bar .dots i{width:13px;height:13px;border-radius:50%;display:block}
+  .terminal-bar .dots i:nth-child(1){background:#FF5F57}
+  .terminal-bar .dots i:nth-child(2){background:#FEBC2E}
+  .terminal-bar .dots i:nth-child(3){background:#28C840}
+  .terminal-bar .terminal-title{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--muted)}
+  .terminal-body{padding:32px 28px 38px;font-family:'JetBrains Mono',monospace;font-size:17px;line-height:2.05}
+  .terminal-body .cmd{color:var(--accent);font-weight:500}
+  .terminal-body .out{color:var(--muted)}
+  .terminal-body .result{color:var(--accent);font-weight:700;margin-top:8px;font-size:18px}
+  .terminal-body .cursor{display:inline-block;color:var(--accent);opacity:0;margin-left:2px}
+  .terminal.done .cursor{opacity:1;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+
+  @media (max-width:1080px){
+    .terminal{width:420px}
+    .terminal-body{font-size:15px;padding:26px 24px 30px}
   }
-  .hero-visual .mock-art{
-    flex:1;border-radius:var(--radius-s);background:var(--surface);
-    display:flex;align-items:center;justify-content:center;color:var(--accent);
-  }
-  .hero-visual .mock-art svg{width:34%;height:34%}
-  .hero-visual .mock-bar{height:7px;border-radius:4px;background:var(--line-strong)}
-  .hero-visual .mock-bar.short{width:40%}
-  .hero-visual .case-mock:nth-child(1){top:0;left:0;--r:-4deg;z-index:2}
-  .hero-visual .case-mock:nth-child(2){top:120px;left:70px;--r:3deg;z-index:1;opacity:.8;animation-delay:.8s}
 
   @media (max-width:980px){
-    .hero-visual{display:none}
-    .hero .container{justify-content:flex-start}
+    .hero .container{flex-direction:column;align-items:stretch}
+    .terminal{width:100%;max-width:600px;margin:0 auto;transform:none}
+    .terminal-body{font-size:16px}
   }
 
   @media (max-width:720px){
     .hero{padding:56px 0 64px}
     .hero-actions{width:100%}
     .hero-actions .btn{flex:1 1 auto}
+    .terminal-body{font-size:13.5px;padding:22px 20px 26px}
+    .terminal-bar{padding:13px 16px}
   }
 
   @media (prefers-reduced-motion: reduce){
-    .hero h1,.hero .lede,.hero-actions,.hero-meta,.hero-visual{opacity:1;animation:none}
-    .hero-visual .case-mock{animation:none}
+    .hero h1,.hero .lede,.hero-actions,.hero-meta,.terminal{opacity:1;animation:none}
+    .terminal.done .cursor{animation:none;opacity:1}
   }
 
   /* ---------- для кого ---------- */
@@ -335,9 +347,11 @@
     display:flex;flex-direction:column;
     overflow:hidden;
   }
-  .case-mock .dots{display:flex;gap:5px;padding:10px 12px;flex-shrink:0}
-  .case-mock .dots i{width:6px;height:6px;border-radius:50%;background:var(--line-strong);display:block}
-  .case-mock .dots i:last-child{background:var(--accent)}
+  .case-mock .dots{display:flex;gap:6px;padding:10px 12px;flex-shrink:0}
+  .case-mock .dots i{width:7px;height:7px;border-radius:50%;display:block}
+  .case-mock .dots i:nth-child(1){background:#FF5F57}
+  .case-mock .dots i:nth-child(2){background:#FEBC2E}
+  .case-mock .dots i:nth-child(3){background:#28C840}
   .case-mock img{flex:1;width:100%;object-fit:cover;object-position:top center;display:block}
   .case-body{padding:24px}
   .case-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
@@ -394,7 +408,8 @@
   .plan.featured{border-color:var(--accent)}
   .plan-tag{
     display:inline-flex;align-self:flex-start;
-    font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;font-weight:500;letter-spacing:0;text-transform:none;
     background:var(--accent-dim);color:var(--accent);
     padding:5px 10px;border-radius:5px;margin-bottom:16px;
   }
@@ -532,16 +547,18 @@
           <div><strong>100%</strong><span>адаптивність під мобільні</span></div>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <div class="case-mock">
+      <div class="terminal" id="heroTerminal" aria-hidden="true">
+        <div class="terminal-bar">
           <div class="dots"><i></i><i></i><i></i></div>
-          <div class="mock-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg></div>
-          <div class="mock-bar"></div><div class="mock-bar short"></div>
+          <span class="terminal-title">nezko — deploy</span>
         </div>
-        <div class="case-mock">
-          <div class="dots"><i></i><i></i><i></i></div>
-          <div class="mock-art"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2 14 10 22 12 14 14 12 22 10 14 2 12 10 10 Z"/></svg></div>
-          <div class="mock-bar"></div><div class="mock-bar short"></div>
+        <div class="terminal-body">
+          <p class="cmd"><span data-type>$ nezko new --niche="салон краси"</span></p>
+          <p class="out"><span data-type>▸ аналізуємо нішу... готово</span></p>
+          <p class="out"><span data-type>▸ збираємо структуру сайту... готово</span></p>
+          <p class="out"><span data-type>▸ адаптація під мобільні... готово</span></p>
+          <p class="out"><span data-type>▸ публікуємо... готово</span></p>
+          <p class="result"><span data-type>✓ сайт живий за 3 дні</span><span class="cursor">▋</span></p>
         </div>
       </div>
     </div>
@@ -550,7 +567,7 @@
   <section id="dlya-kogo">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Для кого</div>
+        <div class="eyebrow"><span class="prompt">$</span>Для кого</div>
         <h2>Рішення під вашу галузь, а не шаблон "для всіх"</h2>
         <p>Кожна ніша має свою логіку продажів. Ми враховуємо це в структурі сайту з самого початку.</p>
       </div>
@@ -619,7 +636,7 @@
   <section id="portfolio">
     <div class="container">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Портфоліо</div>
+        <div class="eyebrow"><span class="prompt">$</span>Портфоліо</div>
         <h2>Кейси, зроблені під конкретну нішу</h2>
         <p>Реальні сайти, які вже працюють і приймають клієнтів.</p>
       </div>
@@ -669,7 +686,7 @@
   <section class="extra" id="poslugy">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Апгрейд</div>
+        <div class="eyebrow"><span class="prompt">$</span>Апгрейд</div>
         <h2>Більше можливостей, коли будете готові</h2>
         <p>Коли сайт запущено і клієнти пішли — можна підключити автоматизацію. Це доповнення до основного сайту, а не окремий продукт.</p>
       </div>
@@ -695,7 +712,7 @@
   <section id="process">
     <div class="container">
       <div class="section-head">
-        <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Процес</div>
+        <div class="eyebrow"><span class="prompt">$</span>Процес</div>
         <h2>Як це працює</h2>
         <p>Від заявки до першого клієнта на сайті — чотири прозорих кроки.</p>
       </div>
@@ -727,7 +744,7 @@
   <section id="price">
     <div class="container">
       <div class="section-head reveal">
-        <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Ціни</div>
+        <div class="eyebrow"><span class="prompt">$</span>Ціни</div>
         <h2>Прозорі тарифи без прихованих доплат</h2>
         <p>Оберіть варіант під поточну задачу — від сайту-візитки до повного запуску бізнесу.</p>
       </div>
@@ -748,7 +765,7 @@
         </div>
 
         <div class="card plan featured reveal">
-          <span class="plan-tag">Популярний</span>
+          <span class="plan-tag">// популярний</span>
           <h3>Сайт + AI-бот</h3>
           <p class="desc">Сайт з автоматичним прийомом заявок</p>
           <div class="price">від 8 900 ₴</div>
@@ -777,7 +794,7 @@
         </div>
 
         <div class="card plan reveal">
-          <span class="plan-tag">Щомісячно</span>
+          <span class="plan-tag">// щомісячно</span>
           <h3>SMM-супровід</h3>
           <p class="desc">Ведення Instagram-сторінки бізнесу</p>
           <div class="price">від $150<span> / місяць</span></div>
@@ -876,6 +893,42 @@
     revealItems.forEach(el => observer.observe(el));
   } else {
     revealItems.forEach(el => el.classList.add('visible'));
+  }
+
+  const terminal = document.getElementById('heroTerminal');
+  if (terminal) {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      terminal.classList.add('done');
+    } else {
+      const introOffset = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--intro-offset')) || 0;
+      const lines = [...terminal.querySelectorAll('[data-type]')];
+      const originals = lines.map(el => el.textContent);
+      lines.forEach(el => { el.textContent = ''; });
+      let i = 0;
+      function typeNext() {
+        if (i >= lines.length) {
+          terminal.classList.add('done');
+          return;
+        }
+        const el = lines[i];
+        const full = originals[i];
+        const isCmd = el.parentElement.classList.contains('cmd');
+        const speed = isCmd ? 32 : 12;
+        let c = 0;
+        (function step() {
+          el.textContent = full.slice(0, c);
+          c++;
+          if (c <= full.length) {
+            setTimeout(step, speed);
+          } else {
+            i++;
+            setTimeout(typeNext, isCmd ? 300 : 150);
+          }
+        })();
+      }
+      setTimeout(typeNext, introOffset * 1000 + 900);
+    }
   }
 </script>
 
