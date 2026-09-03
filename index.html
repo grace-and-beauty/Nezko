@@ -111,6 +111,11 @@
   }
   .skip-link:focus{top:16px}
 
+  #scrollProgress{
+    position:fixed;top:0;left:0;height:3px;width:0%;
+    background:var(--accent);z-index:9996;pointer-events:none;
+  }
+
   /* ---------- reusable ---------- */
 
   .eyebrow{
@@ -477,6 +482,8 @@
 </head>
 <body>
 
+<div id="scrollProgress" aria-hidden="true"></div>
+
 <script>
   if (sessionStorage.getItem('nezkoIntroSeen')) {
     document.documentElement.classList.add('skip-intro');
@@ -568,7 +575,7 @@
     <div class="container">
       <div class="section-head">
         <div class="eyebrow"><span class="prompt">$</span>Для кого</div>
-        <h2>Рішення під вашу галузь, а не шаблон "для всіх"</h2>
+        <h2 class="scramble">Рішення під вашу галузь, а не шаблон "для всіх"</h2>
         <p>Кожна ніша має свою логіку продажів. Ми враховуємо це в структурі сайту з самого початку.</p>
       </div>
 
@@ -637,7 +644,7 @@
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow"><span class="prompt">$</span>Портфоліо</div>
-        <h2>Кейси, зроблені під конкретну нішу</h2>
+        <h2 class="scramble">Кейси, зроблені під конкретну нішу</h2>
         <p>Реальні сайти, які вже працюють і приймають клієнтів.</p>
       </div>
 
@@ -687,7 +694,7 @@
     <div class="container">
       <div class="section-head">
         <div class="eyebrow"><span class="prompt">$</span>Апгрейд</div>
-        <h2>Більше можливостей, коли будете готові</h2>
+        <h2 class="scramble">Більше можливостей, коли будете готові</h2>
         <p>Коли сайт запущено і клієнти пішли — можна підключити автоматизацію. Це доповнення до основного сайту, а не окремий продукт.</p>
       </div>
       <div class="extra-grid">
@@ -713,7 +720,7 @@
     <div class="container">
       <div class="section-head">
         <div class="eyebrow"><span class="prompt">$</span>Процес</div>
-        <h2>Як це працює</h2>
+        <h2 class="scramble">Як це працює</h2>
         <p>Від заявки до першого клієнта на сайті — чотири прозорих кроки.</p>
       </div>
       <div class="steps">
@@ -745,7 +752,7 @@
     <div class="container">
       <div class="section-head reveal">
         <div class="eyebrow"><span class="prompt">$</span>Ціни</div>
-        <h2>Прозорі тарифи без прихованих доплат</h2>
+        <h2 class="scramble">Прозорі тарифи без прихованих доплат</h2>
         <p>Оберіть варіант під поточну задачу — від сайту-візитки до повного запуску бізнесу.</p>
       </div>
       <div class="price-grid stagger">
@@ -929,6 +936,58 @@
       }
       setTimeout(typeNext, introOffset * 1000 + 900);
     }
+  }
+
+  const progressBar = document.getElementById('scrollProgress');
+  if (progressBar) {
+    let ticking = false;
+    function updateProgress() {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
+      ticking = false;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateProgress);
+        ticking = true;
+      }
+    }, { passive: true });
+    updateProgress();
+  }
+
+  const scrambleItems = document.querySelectorAll('.scramble');
+  if (scrambleItems.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const scrambleChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#$%&*';
+    function scramble(el) {
+      const original = el.textContent;
+      const len = original.length;
+      const totalFrames = Math.max(len * 2, 20);
+      let frame = 0;
+      const timer = setInterval(() => {
+        let out = '';
+        for (let i = 0; i < len; i++) {
+          if (original[i] === ' ') { out += ' '; continue; }
+          const lockFrame = (i / len) * totalFrames * 0.7 + totalFrames * 0.3;
+          out += frame >= lockFrame ? original[i] : scrambleChars[Math.floor(Math.random() * scrambleChars.length)];
+        }
+        el.textContent = out;
+        frame++;
+        if (frame > totalFrames) {
+          el.textContent = original;
+          clearInterval(timer);
+        }
+      }, 28);
+    }
+    const scrambleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          scramble(entry.target);
+          scrambleObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    scrambleItems.forEach(el => scrambleObserver.observe(el));
   }
 </script>
 
