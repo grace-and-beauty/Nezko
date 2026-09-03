@@ -3,12 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nezko — готові сайти під вашу нішу</title>
-<meta name="description" content="Nezko створює сайти під ключ для салонів краси, кондитерських, репетиторів, фотографів та інших спеціалістів. Швидкий запуск, адаптивний дизайн.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='21' fill='%23000'/%3E%3Cpolyline points='18,13 29,22 18,31' fill='none' stroke='%23C6FF00' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<title>Nezko — сайти під ключ для салонів краси, майстрів і кондитерських</title>
+<meta name="description" content="Nezko робить готові сайти під вашу нішу за 3–5 днів: салони краси, манікюр, кондитерські, репетитори, фотографи. Адаптивний дизайн, онлайн-запис, опційно AI-бот.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D0D0D">
+<link rel="canonical" href="https://nezko.studio/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nezko">
+<meta property="og:title" content="Nezko — сайти під ключ для салонів краси, майстрів і кондитерських">
+<meta property="og:description" content="Готовий сайт під вашу нішу за 3–5 днів. Адаптивний дизайн, онлайн-запис, опційно AI-бот для заявок.">
+<meta property="og:url" content="https://nezko.studio/">
+<meta property="og:image" content="https://nezko.studio/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="uk_UA">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nezko — сайти під ключ для малого бізнесу">
+<meta name="twitter:description" content="Готовий сайт під вашу нішу за 3–5 днів. Адаптивний дизайн, онлайн-запис, опційно AI-бот для заявок.">
+<meta name="twitter:image" content="https://nezko.studio/assets/og-image.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='21' fill='%23161616' stroke='%23C6FF00' stroke-width='1.4'/%3E%3Cline x1='7' y1='15' x2='14' y2='15' stroke='%23C6FF00' stroke-width='2.2' stroke-linecap='round'/%3E%3Cline x1='6' y1='22' x2='15' y2='22' stroke='%23C6FF00' stroke-width='2.4' stroke-linecap='round'/%3E%3Cline x1='7' y1='29' x2='14' y2='29' stroke='%23C6FF00' stroke-width='2.2' stroke-linecap='round'/%3E%3Cpolyline points='18,13 29,22 18,31' fill='none' stroke='%23C6FF00' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Nezko",
+  "url": "https://nezko.studio/",
+  "image": "https://nezko.studio/assets/og-image.png",
+  "description": "Готові сайти під ключ для салонів краси, кондитерських, репетиторів, фотографів та інших спеціалістів малого бізнесу.",
+  "telephone": "+380689367539",
+  "areaServed": "UA",
+  "sameAs": [
+    "https://instagram.com/nezko.studio"
+  ]
+}
+</script>
 <style>
   :root{
     --bg:#0D0D0D;
@@ -63,6 +96,15 @@
   ::selection{background:var(--accent);color:#0D0D0D}
 
   :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  .skip-link{
+    position:fixed;top:-100px;left:16px;z-index:10000;
+    background:var(--accent);color:#0D0D0D;
+    padding:12px 20px;border-radius:var(--radius-s);
+    font-weight:600;font-size:14px;
+    transition:top .15s ease;
+  }
+  .skip-link:focus{top:16px}
 
   /* ---------- reusable ---------- */
 
@@ -267,31 +309,28 @@
   .niche-card h3{font-size:19px;margin-bottom:10px}
   .niche-card p{font-size:14.5px;color:var(--muted)}
 
+  /* ---------- stat band ---------- */
+
+  .stat-band{background:var(--surface-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:56px 0}
+  .stat-band .container{display:flex;align-items:center;gap:40px;flex-wrap:wrap}
+  .stat-band .num{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(56px,9vw,96px);color:var(--accent);line-height:1;flex-shrink:0}
+  .stat-band p{font-size:19px;color:var(--heading);max-width:520px}
+
   /* ---------- portfolio ---------- */
 
-  .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+  .case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
   .case-card{overflow:hidden;padding:0;display:flex;flex-direction:column}
   .case-mock{
     aspect-ratio:16/11;
     background:var(--surface-alt);
     border-bottom:1px solid var(--line);
     display:flex;flex-direction:column;
-    padding:16px;
-    gap:10px;
+    overflow:hidden;
   }
-  .case-mock .dots{display:flex;gap:5px}
+  .case-mock .dots{display:flex;gap:5px;padding:10px 12px;flex-shrink:0}
   .case-mock .dots i{width:6px;height:6px;border-radius:50%;background:var(--line-strong);display:block}
   .case-mock .dots i:last-child{background:var(--accent)}
-  .case-mock .art{
-    flex:1;
-    border-radius:var(--radius-s);
-    background:var(--surface);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--accent);
-  }
-  .case-mock .art svg{width:34%;height:34%}
-  .case-mock .bar{height:7px;border-radius:4px;background:var(--line-strong)}
-  .case-mock .bar.short{width:40%}
+  .case-mock img{flex:1;width:100%;object-fit:cover;object-position:top center;display:block}
   .case-body{padding:24px}
   .case-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
   .case-top h3{font-size:18px}
@@ -423,8 +462,10 @@
   }
 </script>
 
+<a href="#top" class="skip-link">Перейти до змісту</a>
+
 <div id="intro" aria-hidden="true">
-  <svg class="intro-logo" width="88" height="88" viewBox="0 0 44 44">
+  <svg aria-hidden="true" class="intro-logo" width="88" height="88" viewBox="0 0 44 44">
     <circle cx="22" cy="22" r="21" fill="#161616" stroke="#C6FF00" stroke-width="1.4"/>
     <line class="intro-line" x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
     <line class="intro-line" x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round"/>
@@ -452,8 +493,8 @@
       <a href="#contacts">Контакти</a>
     </div>
     <div class="nav-actions">
-      <a href="#price" class="btn btn-primary nav-cta">Замовити сайт<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-      <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
+      <a href="#price" class="btn btn-primary nav-cta">Замовити сайт<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span></button>
     </div>
   </div>
 </nav>
@@ -466,7 +507,7 @@
   <a href="#price" class="btn btn-primary btn-block">Замовити сайт</a>
 </div>
 
-<main id="top">
+<main id="top" tabindex="-1">
 
   <section class="hero">
     <div class="container">
@@ -486,13 +527,11 @@
       <div class="hero-visual" aria-hidden="true">
         <div class="case-mock">
           <div class="dots"><i></i><i></i><i></i></div>
-          <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg></div>
-          <div class="bar"></div><div class="bar short"></div>
+          <img src="assets/case-grace-and-beauty.jpg" alt="" loading="lazy">
         </div>
         <div class="case-mock">
           <div class="dots"><i></i><i></i><i></i></div>
-          <div class="art"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2 14 10 22 12 14 14 12 22 10 14 2 12 10 10 Z"/></svg></div>
-          <div class="bar"></div><div class="bar short"></div>
+          <img src="assets/case-anna-dmytryshyna.jpg" alt="" loading="lazy">
         </div>
       </div>
     </div>
@@ -500,63 +539,70 @@
 
   <section id="dlya-kogo">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Для кого</div>
         <h2>Рішення під вашу галузь, а не шаблон "для всіх"</h2>
         <p>Кожна ніша має свою логіку продажів. Ми враховуємо це в структурі сайту з самого початку.</p>
       </div>
 
-      <div class="niche-grid stagger">
+      <div class="niche-grid">
 
-        <article class="card niche-card reveal">
+        <article class="card niche-card">
           <div class="niche-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg>
           </div>
           <h3>Салони краси</h3>
           <p>Онлайн-запис і портфоліо робіт в одному місці — клієнтки бронюють час, не чекаючи відповіді в директ.</p>
         </article>
 
-        <article class="card niche-card reveal">
+        <article class="card niche-card">
           <div class="niche-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="3" width="4" height="3" rx="0.5"/><path d="M9 6 9 9 7 12 7 19a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-7l-2-3V6z"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="3" width="4" height="3" rx="0.5"/><path d="M9 6 9 9 7 12 7 19a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-7l-2-3V6z"/></svg>
           </div>
           <h3>Майстри манікюру</h3>
           <p>Галерея дизайнів і форма запису замість нескінченного скролу переписки в сторіс.</p>
         </article>
 
-        <article class="card niche-card reveal">
+        <article class="card niche-card">
           <div class="niche-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12 9 9c1-1.5 5-1.5 6 0l2 3"/><path d="M5 21 6.5 12h11L19 21z"/><circle cx="12" cy="6" r="1.3" fill="currentColor" stroke="none"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12 9 9c1-1.5 5-1.5 6 0l2 3"/><path d="M5 21 6.5 12h11L19 21z"/><circle cx="12" cy="6" r="1.3" fill="currentColor" stroke="none"/></svg>
           </div>
           <h3>Кондитерські</h3>
           <p>Каталог тортів і десертів із цінами та кнопкою замовлення — продає, поки ви спите.</p>
         </article>
 
-        <article class="card niche-card reveal">
+        <article class="card niche-card">
           <div class="niche-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>
           </div>
           <h3>Репетитори</h3>
           <p>Розклад, відгуки учнів і форма запису на пробне заняття — все, щоб довіряли з першого візиту.</p>
         </article>
 
-        <article class="card niche-card reveal">
+        <article class="card niche-card">
           <div class="niche-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg>
           </div>
           <h3>Фотографи</h3>
           <p>Портфоліо, що завантажується миттєво навіть з мобільного, і форма бронювання зйомки.</p>
         </article>
 
-        <article class="card niche-card reveal">
+        <article class="card niche-card">
           <div class="niche-icon">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="8" y1="3" x2="8" y2="6"/><line x1="16" y1="3" x2="16" y2="6"/><path d="M8.5 14 11 16.5 16 11.5"/></svg>
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="8" y1="3" x2="8" y2="6"/><line x1="16" y1="3" x2="16" y2="6"/><path d="M8.5 14 11 16.5 16 11.5"/></svg>
           </div>
           <h3>Майстри запису</h3>
           <p>Перукарі, косметологи, тренери — один сайт замість десятка розрізнених сторіс.</p>
         </article>
 
       </div>
+    </div>
+  </section>
+
+  <section class="stat-band">
+    <div class="container">
+      <div class="num">6+</div>
+      <p>галузей, під структуру продажів яких ми вже адаптували сайт — від салонів краси до організаторів подій.</p>
     </div>
   </section>
 
@@ -572,40 +618,37 @@
 
         <article class="card case-card reveal">
           <div class="case-mock">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg></div>
-            <div class="bar"></div><div class="bar short"></div>
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="assets/case-grace-and-beauty.jpg" alt="Скріншот головної сторінки сайту Grace & Beauty" loading="lazy" width="760" height="522">
           </div>
           <div class="case-body">
             <div class="case-top"><h3>Grace & Beauty</h3><span>Салон краси, Рівне</span></div>
             <p style="color:var(--muted);font-size:14px">Каталог процедур з цінами, команда майстрів і онлайн-запис без дзвінків.</p>
-            <a href="https://grace-and-beauty.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="https://grace-and-beauty.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
 
         <article class="card case-card reveal">
           <div class="case-mock">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2 14 10 22 12 14 14 12 22 10 14 2 12 10 10 Z"/></svg></div>
-            <div class="bar"></div><div class="bar short"></div>
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="assets/case-zhinocha-narada.jpg" alt="Скріншот головної сторінки сайту-запрошення Жіноча Нарада" loading="lazy" width="760" height="522">
           </div>
           <div class="case-body">
             <div class="case-top"><h3>Жіноча Нарада</h3><span>Подія</span></div>
             <p style="color:var(--muted);font-size:14px">Сторінка-запрошення на захід: дата, локація, дрес-код і склад учасниць в одному місці.</p>
-            <a href="https://zhinocha-narada.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="https://zhinocha-narada.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
 
         <article class="card case-card reveal">
           <div class="case-mock">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></div>
-            <div class="bar"></div><div class="bar short"></div>
+            <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+            <img src="assets/case-anna-dmytryshyna.jpg" alt="Скріншот головної сторінки сайту психологині Анни Дмитришиної" loading="lazy" width="760" height="522">
           </div>
           <div class="case-body">
             <div class="case-top"><h3>Анна Дмитришина</h3><span>Психологиня, тренерка</span></div>
             <p style="color:var(--muted);font-size:14px">Напрямки роботи, відгуки клієнтів і запис на консультацію онлайн чи офлайн.</p>
-            <a href="https://annadmytryshyna.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <a href="https://annadmytryshyna.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
 
@@ -615,27 +658,27 @@
 
   <section class="extra" id="poslugy">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Апгрейд</div>
         <h2>Більше можливостей, коли будете готові</h2>
         <p>Коли сайт запущено і клієнти пішли — можна підключити автоматизацію. Це доповнення до основного сайту, а не окремий продукт.</p>
       </div>
-      <div class="extra-grid stagger">
-        <div class="extra-card reveal">
+      <div class="extra-grid">
+        <div class="extra-card">
           <span class="tag">AI</span>
           <div>
             <h4>Бот для заявок в Instagram і Telegram</h4>
             <p>Приймає повідомлення, відповідає на типові запитання і передає вам готового клієнта — без менеджера в директі.</p>
           </div>
         </div>
-        <div class="extra-card reveal">
+        <div class="extra-card">
           <span class="tag">Старт</span>
           <div>
             <h4>Стартовий пакет для нового бізнесу</h4>
             <p>Сайт, бот і базовий контент-план — усе, щоб запуститися з нуля буквально за тиждень.</p>
           </div>
         </div>
-        <div class="extra-card reveal">
+        <div class="extra-card">
           <span class="tag">SMM</span>
           <div>
             <h4>Ведення Instagram-сторінки</h4>
@@ -649,28 +692,28 @@
 
   <section id="process">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Процес</div>
         <h2>Як це працює</h2>
         <p>Від заявки до першого клієнта на сайті — чотири прозорих кроки.</p>
       </div>
-      <div class="steps stagger">
-        <div class="step reveal">
+      <div class="steps">
+        <div class="step">
           <div class="step-num">01</div>
           <h3>Заявка</h3>
           <p>Залишаєте заявку на сайті або пишете напряму в Telegram.</p>
         </div>
-        <div class="step reveal">
+        <div class="step">
           <div class="step-num">02</div>
           <h3>Бріф</h3>
           <p>10–15 хвилин розмови: дізнаємось про бізнес, нішу і побажання.</p>
         </div>
-        <div class="step reveal">
+        <div class="step">
           <div class="step-num">03</div>
           <h3>Розробка</h3>
           <p>Збираємо сайт під вашу галузь за 3–5 днів і надсилаємо на перегляд.</p>
         </div>
-        <div class="step reveal">
+        <div class="step">
           <div class="step-num">04</div>
           <h3>Запуск</h3>
           <p>Перевіряємо, публікуємо на домені — ви приймаєте перших клієнтів.</p>
@@ -693,13 +736,13 @@
           <p class="desc">Односторінковий сайт під вашу нішу</p>
           <div class="price">від 4 900 ₴</div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Адаптивний дизайн під мобільні</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>До 6 секцій під вашу галузь</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Форма заявки</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Хостинг і домен на старті</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Здача за 3–5 днів</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Адаптивний дизайн під мобільні</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>До 6 секцій під вашу галузь</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Форма заявки</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Хостинг і домен на старті</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Здача за 3–5 днів</li>
           </ul>
-          <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
+          <a href="https://t.me/+380689367539?text=%D0%92%D1%96%D1%82%D0%B0%D1%8E%21%20%D0%A6%D1%96%D0%BA%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%91%D0%B0%D0%B7%D0%BE%D0%B2%D0%B8%D0%B9%20%D1%81%D0%B0%D0%B9%D1%82%C2%BB." target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
         </div>
 
         <div class="card plan featured reveal">
@@ -708,13 +751,13 @@
           <p class="desc">Сайт з автоматичним прийомом заявок</p>
           <div class="price">від 8 900 ₴</div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Все з тарифу «Базовий сайт»</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI-бот для Instagram і Telegram</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Автоматичні відповіді 24/7</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Інтеграція з формою заявки</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Навчання роботі з ботом</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Все з тарифу «Базовий сайт»</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>AI-бот для Instagram і Telegram</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Автоматичні відповіді 24/7</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Інтеграція з формою заявки</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Навчання роботі з ботом</li>
           </ul>
-          <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-primary btn-block">Обрати</a>
+          <a href="https://t.me/+380689367539?text=%D0%92%D1%96%D1%82%D0%B0%D1%8E%21%20%D0%A6%D1%96%D0%BA%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%A1%D0%B0%D0%B9%D1%82%20%2B%20AI-%D0%B1%D0%BE%D1%82%C2%BB." target="_blank" rel="noopener" class="btn btn-primary btn-block">Обрати</a>
         </div>
 
         <div class="card plan reveal">
@@ -722,13 +765,13 @@
           <p class="desc">Повний пакет для запуску з нуля</p>
           <div class="price">від 14 900 ₴</div>
           <ul>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Все з тарифу «Сайт + AI-бот»</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Контент-план на перший місяць</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Пакет текстів для соцмереж</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Консультація з позиціонування</li>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Пріоритетна підтримка перший місяць</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Все з тарифу «Сайт + AI-бот»</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Контент-план на перший місяць</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Пакет текстів для соцмереж</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Консультація з позиціонування</li>
+            <li><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Пріоритетна підтримка перший місяць</li>
           </ul>
-          <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
+          <a href="https://t.me/+380689367539?text=%D0%92%D1%96%D1%82%D0%B0%D1%8E%21%20%D0%A6%D1%96%D0%BA%D0%B0%D0%B2%D0%B8%D1%82%D1%8C%20%D1%82%D0%B0%D1%80%D0%B8%D1%84%20%C2%AB%D0%A1%D1%82%D0%B0%D1%80%D1%82%20%D0%B1%D1%96%D0%B7%D0%BD%D0%B5%D1%81%D1%83%C2%BB." target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
         </div>
 
       </div>
@@ -766,10 +809,10 @@
           <a href="https://t.me/+380689367539" target="_blank" rel="noopener">Написати в Telegram</a>
           <div class="social-row">
             <a href="https://instagram.com/nezko.studio" target="_blank" rel="noopener" aria-label="Instagram">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+              <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
             <a href="https://t.me/+380689367539" target="_blank" rel="noopener" aria-label="Telegram">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 2 11l6 2m14-10-4 17-8-6m12-11L8 13"/></svg>
+              <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 2 11l6 2m14-10-4 17-8-6m12-11L8 13"/></svg>
             </a>
           </div>
         </div>
@@ -785,14 +828,23 @@
 <script>
   const burger = document.getElementById('burger');
   const menu = document.getElementById('mobileMenu');
+  const brandLink = document.querySelector('.brand');
+  const mainEl = document.querySelector('main');
+  const footerEl = document.querySelector('footer');
+
+  function setMenuOpen(open) {
+    burger.classList.toggle('open', open);
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    mainEl.inert = open;
+    footerEl.inert = open;
+    if (brandLink) brandLink.inert = open;
+  }
+
   burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    menu.classList.toggle('open');
+    setMenuOpen(!menu.classList.contains('open'));
   });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    burger.classList.remove('open');
-    menu.classList.remove('open');
-  }));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
 
   const revealItems = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
