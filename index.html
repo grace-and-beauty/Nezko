@@ -203,16 +203,16 @@
     gap:48px;
   }
   .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:28px;max-width:600px}
-  .hero h1{font-size:clamp(36px,5.5vw,58px);opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) .05s forwards}
+  .hero h1{font-size:clamp(36px,5.5vw,58px);opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .05s)}
   .hero h1 em{font-style:normal;color:var(--accent)}
-  .hero .lede{font-size:18px;color:var(--muted);opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) .16s forwards}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) .28s forwards}
+  .hero .lede{font-size:18px;color:var(--muted);opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .16s)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:8px;opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .28s)}
   .hero-meta{
     display:flex;flex-wrap:wrap;gap:32px;
     margin-top:40px;padding-top:28px;
     border-top:1px solid var(--line);
     width:100%;
-    opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) .4s forwards;
+    opacity:0;animation:fadeInUp .7s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .4s);
   }
   .hero-meta div strong{display:block;font-family:'Space Grotesk',sans-serif;font-size:26px;color:var(--heading)}
   .hero-meta div span{font-size:13.5px;color:var(--muted)}
@@ -220,7 +220,7 @@
   .hero-visual{
     position:relative;flex-shrink:0;
     width:340px;height:360px;
-    opacity:0;animation:fadeInUp .8s cubic-bezier(.16,.8,.3,1) .22s forwards;
+    opacity:0;animation:fadeInUp .8s cubic-bezier(.16,.8,.3,1) forwards;animation-delay:calc(var(--intro-offset) + .22s);
   }
   .hero-visual .case-mock{
     --r:0deg;
@@ -381,9 +381,55 @@
     .footer-top{flex-direction:column}
     .footer-cols{gap:36px}
   }
+
+  /* ---------- intro splash ---------- */
+
+  :root{--intro-offset:.9s}
+  html.skip-intro{--intro-offset:0s}
+  html.skip-intro #intro{display:none}
+
+  #intro{
+    position:fixed;inset:0;z-index:9999;
+    background:var(--bg);
+    display:flex;align-items:center;justify-content:center;
+    animation:introHide .5s ease forwards;
+    animation-delay:.9s;
+  }
+  @keyframes introHide{ to{opacity:0;visibility:hidden;pointer-events:none} }
+  .intro-logo{overflow:visible}
+  .intro-logo .intro-line{opacity:0;transform:scaleX(0);transform-origin:left center;animation:introLine .35s ease forwards}
+  .intro-logo .intro-line:nth-child(2){animation-delay:.05s}
+  .intro-logo .intro-line:nth-child(3){animation-delay:.13s}
+  .intro-logo .intro-line:nth-child(4){animation-delay:.21s}
+  @keyframes introLine{ to{opacity:1;transform:scaleX(1)} }
+  .intro-logo .intro-chevron{opacity:0;transform:translateX(-14px) scale(.6);animation:introChevron .4s cubic-bezier(.2,.9,.3,1.4) forwards;animation-delay:.32s}
+  @keyframes introChevron{ to{opacity:1;transform:translateX(0) scale(1)} }
+
+  @media (prefers-reduced-motion: reduce){
+    #intro{display:none}
+    :root{--intro-offset:0s}
+  }
 </style>
 </head>
 <body>
+
+<script>
+  if (sessionStorage.getItem('nezkoIntroSeen')) {
+    document.documentElement.classList.add('skip-intro');
+  } else {
+    sessionStorage.setItem('nezkoIntroSeen', '1');
+  }
+</script>
+
+<div id="intro" aria-hidden="true">
+  <svg class="intro-logo" width="88" height="88" viewBox="0 0 44 44">
+    <circle cx="22" cy="22" r="21" fill="#000000" stroke="#C6FF00" stroke-opacity="0.35"/>
+    <line class="intro-line" x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
+    <line class="intro-line" x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round"/>
+    <line class="intro-line" x1="7" y1="29" x2="14" y2="29" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
+    <polyline class="intro-chevron" points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
 
 <nav class="nav">
   <div class="container">
