@@ -962,7 +962,7 @@
     function scramble(el) {
       const original = el.textContent;
       const len = original.length;
-      const totalFrames = Math.max(len * 2, 20);
+      const totalFrames = Math.max(Math.round(len * 0.9), 12);
       let frame = 0;
       const timer = setInterval(() => {
         let out = '';
@@ -977,7 +977,7 @@
           el.textContent = original;
           clearInterval(timer);
         }
-      }, 28);
+      }, 16);
     }
     const scrambleObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
