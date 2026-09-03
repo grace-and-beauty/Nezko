@@ -102,9 +102,9 @@
     transition:background .15s ease, color .15s ease, border-color .15s ease, opacity .15s ease;
   }
   .btn-primary{background:var(--accent);color:#0D0D0D}
-  .btn-primary:hover{background:#dbff4d}
+  .btn-primary:hover{background:#dbff4d;transform:translateY(-2px)}
   .btn-secondary{background:transparent;color:var(--heading);border:1px solid var(--line-strong)}
-  .btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-secondary:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
   .btn-block{width:100%}
 
   .card{
@@ -112,6 +112,22 @@
     border:1px solid var(--line);
     border-radius:var(--radius-l);
     padding:32px;
+    transition:border-color .2s ease, transform .2s ease;
+  }
+  .card:hover{transform:translateY(-4px)}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,.8,.3,1),transform .7s cubic-bezier(.16,.8,.3,1)}
+  .reveal.visible{opacity:1;transform:none}
+  .stagger>*:nth-child(1){transition-delay:0ms}
+  .stagger>*:nth-child(2){transition-delay:80ms}
+  .stagger>*:nth-child(3){transition-delay:160ms}
+  .stagger>*:nth-child(4){transition-delay:240ms}
+  .stagger>*:nth-child(5){transition-delay:320ms}
+  .stagger>*:nth-child(6){transition-delay:400ms}
+
+  @media (prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    .card:hover{transform:none}
   }
 
   /* ---------- navbar ---------- */
@@ -277,6 +293,7 @@
   }
   .extra-card h4{font-family:'Inter',sans-serif;font-weight:600;font-size:15px;margin-bottom:4px;color:var(--heading)}
   .extra-card p{font-size:13.5px;color:var(--muted)}
+  .extra-card .extra-price{margin-top:8px;font-size:12.5px;font-weight:600;color:var(--accent)}
 
   /* ---------- process ---------- */
 
@@ -379,7 +396,7 @@
       <p class="lede">Nezko збирає сайти під ключ для салонів краси, кондитерських, репетиторів, фотографів та інших спеціалістів. Ви отримуєте адаптивний сайт, готовий приймати клієнтів з першого дня — без місяців розробки та зайвих ускладнень.</p>
       <div class="hero-actions">
         <a href="#portfolio" class="btn btn-primary">Подивитись приклади</a>
-        <a href="https://t.me/nezko" target="_blank" rel="noopener" class="btn btn-secondary">Написати в Telegram</a>
+        <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-secondary">Написати в Telegram</a>
       </div>
       <div class="hero-meta">
         <div><strong>3–5 днів</strong><span>до запуску сайту</span></div>
@@ -391,15 +408,15 @@
 
   <section id="dlya-kogo">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Для кого</div>
         <h2>Рішення під вашу галузь, а не шаблон "для всіх"</h2>
         <p>Кожна ніша має свою логіку продажів. Ми враховуємо це в структурі сайту з самого початку.</p>
       </div>
 
-      <div class="niche-grid">
+      <div class="niche-grid stagger">
 
-        <article class="card niche-card">
+        <article class="card niche-card reveal">
           <div class="niche-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg>
           </div>
@@ -407,7 +424,7 @@
           <p>Онлайн-запис і портфоліо робіт в одному місці — клієнтки бронюють час, не чекаючи відповіді в директ.</p>
         </article>
 
-        <article class="card niche-card">
+        <article class="card niche-card reveal">
           <div class="niche-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="3" width="4" height="3" rx="0.5"/><path d="M9 6 9 9 7 12 7 19a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-7l-2-3V6z"/></svg>
           </div>
@@ -415,7 +432,7 @@
           <p>Галерея дизайнів і форма запису замість нескінченного скролу переписки в сторіс.</p>
         </article>
 
-        <article class="card niche-card">
+        <article class="card niche-card reveal">
           <div class="niche-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12 9 9c1-1.5 5-1.5 6 0l2 3"/><path d="M5 21 6.5 12h11L19 21z"/><circle cx="12" cy="6" r="1.3" fill="currentColor" stroke="none"/></svg>
           </div>
@@ -423,7 +440,7 @@
           <p>Каталог тортів і десертів із цінами та кнопкою замовлення — продає, поки ви спите.</p>
         </article>
 
-        <article class="card niche-card">
+        <article class="card niche-card reveal">
           <div class="niche-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg>
           </div>
@@ -431,7 +448,7 @@
           <p>Розклад, відгуки учнів і форма запису на пробне заняття — все, щоб довіряли з першого візиту.</p>
         </article>
 
-        <article class="card niche-card">
+        <article class="card niche-card reveal">
           <div class="niche-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg>
           </div>
@@ -439,7 +456,7 @@
           <p>Портфоліо, що завантажується миттєво навіть з мобільного, і форма бронювання зйомки.</p>
         </article>
 
-        <article class="card niche-card">
+        <article class="card niche-card reveal">
           <div class="niche-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="8" y1="3" x2="8" y2="6"/><line x1="16" y1="3" x2="16" y2="6"/><path d="M8.5 14 11 16.5 16 11.5"/></svg>
           </div>
@@ -453,89 +470,50 @@
 
   <section id="portfolio">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Портфоліо</div>
         <h2>Кейси, зроблені під конкретну нішу</h2>
-        <p>Кілька прикладів того, як виглядають наші сайти в роботі.</p>
+        <p>Реальні сайти, які вже працюють і приймають клієнтів.</p>
       </div>
 
-      <div class="case-grid">
+      <div class="case-grid stagger">
 
-        <article class="card case-card">
+        <article class="card case-card reveal">
           <div class="case-mock">
             <div class="dots"><i></i><i></i><i></i></div>
             <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg></div>
             <div class="bar"></div><div class="bar short"></div>
           </div>
           <div class="case-body">
-            <div class="case-top"><h3>Bloom Beauty</h3><span>Салон краси</span></div>
-            <p style="color:var(--muted);font-size:14px">Онлайн-запис, галерея робіт майстрів, відгуки клієнток.</p>
-            <a href="#" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <div class="case-top"><h3>Grace & Beauty</h3><span>Салон краси, Рівне</span></div>
+            <p style="color:var(--muted);font-size:14px">Каталог процедур з цінами, команда майстрів і онлайн-запис без дзвінків.</p>
+            <a href="https://grace-and-beauty.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
 
-        <article class="card case-card">
+        <article class="card case-card reveal">
           <div class="case-mock">
             <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="3" width="4" height="3" rx="0.5"/><path d="M9 6 9 9 7 12 7 19a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-7l-2-3V6z"/></svg></div>
+            <div class="art"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2 14 10 22 12 14 14 12 22 10 14 2 12 10 10 Z"/></svg></div>
             <div class="bar"></div><div class="bar short"></div>
           </div>
           <div class="case-body">
-            <div class="case-top"><h3>NailBar</h3><span>Манікюр</span></div>
-            <p style="color:var(--muted);font-size:14px">Каталог дизайнів нігтів і швидка форма запису.</p>
-            <a href="#" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <div class="case-top"><h3>Жіноча Нарада</h3><span>Подія</span></div>
+            <p style="color:var(--muted);font-size:14px">Сторінка-запрошення на захід: дата, локація, дрес-код і склад учасниць в одному місці.</p>
+            <a href="https://zhinocha-narada.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
 
-        <article class="card case-card">
+        <article class="card case-card reveal">
           <div class="case-mock">
             <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 12 9 9c1-1.5 5-1.5 6 0l2 3"/><path d="M5 21 6.5 12h11L19 21z"/><circle cx="12" cy="6" r="1.3" fill="currentColor" stroke="none"/></svg></div>
+            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H9l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg></div>
             <div class="bar"></div><div class="bar short"></div>
           </div>
           <div class="case-body">
-            <div class="case-top"><h3>Sweet Lab</h3><span>Кондитерська</span></div>
-            <p style="color:var(--muted);font-size:14px">Меню тортів із цінами і замовленням у два кліки.</p>
-            <a href="#" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card case-card">
-          <div class="case-mock">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6c-2-1.5-5-2-8-1.5v13c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5v-13c-3-.5-6 0-8 1.5z"/><line x1="12" y1="6" x2="12" y2="19"/></svg></div>
-            <div class="bar"></div><div class="bar short"></div>
-          </div>
-          <div class="case-body">
-            <div class="case-top"><h3>SkillUp</h3><span>Репетитор з математики</span></div>
-            <p style="color:var(--muted);font-size:14px">Розклад груп, відгуки учнів, запис на пробне заняття.</p>
-            <a href="#" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card case-card">
-          <div class="case-mock">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.2"/></svg></div>
-            <div class="bar"></div><div class="bar short"></div>
-          </div>
-          <div class="case-body">
-            <div class="case-top"><h3>Mono Photo</h3><span>Фотограф</span></div>
-            <p style="color:var(--muted);font-size:14px">Портфоліо зйомок і бронювання дати без дзвінків.</p>
-            <a href="#" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </article>
-
-        <article class="card case-card">
-          <div class="case-mock">
-            <div class="dots"><i></i><i></i><i></i></div>
-            <div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="8" y1="3" x2="8" y2="6"/><line x1="16" y1="3" x2="16" y2="6"/><path d="M8.5 14 11 16.5 16 11.5"/></svg></div>
-            <div class="bar"></div><div class="bar short"></div>
-          </div>
-          <div class="case-body">
-            <div class="case-top"><h3>Vira Studio</h3><span>Перукар-стиліст</span></div>
-            <p style="color:var(--muted);font-size:14px">Онлайн-запис на послуги з автопідтвердженням у Telegram.</p>
-            <a href="#" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            <div class="case-top"><h3>Анна Дмитришина</h3><span>Психологиня, тренерка</span></div>
+            <p style="color:var(--muted);font-size:14px">Напрямки роботи, відгуки клієнтів і запис на консультацію онлайн чи офлайн.</p>
+            <a href="https://annadmytryshyna.com" target="_blank" rel="noopener" class="case-link">Дивитись сайт <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
 
@@ -545,24 +523,32 @@
 
   <section class="extra" id="poslugy">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Апгрейд</div>
         <h2>Більше можливостей, коли будете готові</h2>
         <p>Коли сайт запущено і клієнти пішли — можна підключити автоматизацію. Це доповнення до основного сайту, а не окремий продукт.</p>
       </div>
-      <div class="extra-grid">
-        <div class="extra-card">
+      <div class="extra-grid stagger">
+        <div class="extra-card reveal">
           <span class="tag">AI</span>
           <div>
             <h4>Бот для заявок в Instagram і Telegram</h4>
             <p>Приймає повідомлення, відповідає на типові запитання і передає вам готового клієнта — без менеджера в директі.</p>
           </div>
         </div>
-        <div class="extra-card">
+        <div class="extra-card reveal">
           <span class="tag">Старт</span>
           <div>
             <h4>Стартовий пакет для нового бізнесу</h4>
             <p>Сайт, бот і базовий контент-план — усе, щоб запуститися з нуля буквально за тиждень.</p>
+          </div>
+        </div>
+        <div class="extra-card reveal">
+          <span class="tag">SMM</span>
+          <div>
+            <h4>Ведення Instagram-сторінки</h4>
+            <p>Контент-план, регулярні публікації та сторіс, спілкування з підписниками — сторінка працює, поки ви зайняті бізнесом.</p>
+            <p class="extra-price">від $150 / місяць</p>
           </div>
         </div>
       </div>
@@ -571,28 +557,28 @@
 
   <section id="process">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Процес</div>
         <h2>Як це працює</h2>
         <p>Від заявки до першого клієнта на сайті — чотири прозорих кроки.</p>
       </div>
-      <div class="steps">
-        <div class="step">
+      <div class="steps stagger">
+        <div class="step reveal">
           <div class="step-num">01</div>
           <h3>Заявка</h3>
           <p>Залишаєте заявку на сайті або пишете напряму в Telegram.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="step-num">02</div>
           <h3>Бріф</h3>
           <p>10–15 хвилин розмови: дізнаємось про бізнес, нішу і побажання.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="step-num">03</div>
           <h3>Розробка</h3>
           <p>Збираємо сайт під вашу галузь за 3–5 днів і надсилаємо на перегляд.</p>
         </div>
-        <div class="step">
+        <div class="step reveal">
           <div class="step-num">04</div>
           <h3>Запуск</h3>
           <p>Перевіряємо, публікуємо на домені — ви приймаєте перших клієнтів.</p>
@@ -603,14 +589,14 @@
 
   <section id="price">
     <div class="container">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="ticks"><span></span><span></span><span></span></span>Ціни</div>
         <h2>Прозорі тарифи без прихованих доплат</h2>
         <p>Оберіть варіант під поточну задачу — від сайту-візитки до повного запуску бізнесу.</p>
       </div>
-      <div class="price-grid">
+      <div class="price-grid stagger">
 
-        <div class="card plan">
+        <div class="card plan reveal">
           <h3>Базовий сайт</h3>
           <p class="desc">Односторінковий сайт під вашу нішу</p>
           <div class="price">від 4 900 ₴</div>
@@ -621,10 +607,10 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Хостинг і домен на старті</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Здача за 3–5 днів</li>
           </ul>
-          <a href="https://t.me/nezko" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
+          <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
         </div>
 
-        <div class="card plan featured">
+        <div class="card plan featured reveal">
           <span class="plan-tag">Популярний</span>
           <h3>Сайт + AI-бот</h3>
           <p class="desc">Сайт з автоматичним прийомом заявок</p>
@@ -636,10 +622,10 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Інтеграція з формою заявки</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Навчання роботі з ботом</li>
           </ul>
-          <a href="https://t.me/nezko" target="_blank" rel="noopener" class="btn btn-primary btn-block">Обрати</a>
+          <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-primary btn-block">Обрати</a>
         </div>
 
-        <div class="card plan">
+        <div class="card plan reveal">
           <h3>Старт бізнесу</h3>
           <p class="desc">Повний пакет для запуску з нуля</p>
           <div class="price">від 14 900 ₴</div>
@@ -650,7 +636,7 @@
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Консультація з позиціонування</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Пріоритетна підтримка перший місяць</li>
           </ul>
-          <a href="https://t.me/nezko" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
+          <a href="https://t.me/+380689367539" target="_blank" rel="noopener" class="btn btn-secondary btn-block">Обрати</a>
         </div>
 
       </div>
@@ -684,13 +670,13 @@
         </div>
         <div class="footer-col">
           <h5>Контакти</h5>
-          <a href="mailto:hello@nezko.studio">hello@nezko.studio</a>
-          <a href="https://t.me/nezko" target="_blank" rel="noopener">@nezko в Telegram</a>
+          <a href="tel:+380689367539">+380 68 936 7539</a>
+          <a href="https://t.me/+380689367539" target="_blank" rel="noopener">Написати в Telegram</a>
           <div class="social-row">
             <a href="https://instagram.com/nezko.studio" target="_blank" rel="noopener" aria-label="Instagram">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
             </a>
-            <a href="https://t.me/nezko" target="_blank" rel="noopener" aria-label="Telegram">
+            <a href="https://t.me/+380689367539" target="_blank" rel="noopener" aria-label="Telegram">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3 2 11l6 2m14-10-4 17-8-6m12-11L8 13"/></svg>
             </a>
           </div>
@@ -715,6 +701,21 @@
     burger.classList.remove('open');
     menu.classList.remove('open');
   }));
+
+  const revealItems = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealItems.forEach(el => observer.observe(el));
+  } else {
+    revealItems.forEach(el => el.classList.add('visible'));
+  }
 </script>
 
 </body>
