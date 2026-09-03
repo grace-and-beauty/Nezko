@@ -272,7 +272,15 @@
     border:1px solid var(--line-strong);
     animation:float 5.5s ease-in-out infinite;
     transform:rotate(var(--r));
+    padding:16px;gap:10px;
   }
+  .hero-visual .mock-art{
+    flex:1;border-radius:var(--radius-s);background:var(--surface);
+    display:flex;align-items:center;justify-content:center;color:var(--accent);
+  }
+  .hero-visual .mock-art svg{width:34%;height:34%}
+  .hero-visual .mock-bar{height:7px;border-radius:4px;background:var(--line-strong)}
+  .hero-visual .mock-bar.short{width:40%}
   .hero-visual .case-mock:nth-child(1){top:0;left:0;--r:-4deg;z-index:2}
   .hero-visual .case-mock:nth-child(2){top:120px;left:70px;--r:3deg;z-index:1;opacity:.8;animation-delay:.8s}
 
@@ -527,11 +535,13 @@
       <div class="hero-visual" aria-hidden="true">
         <div class="case-mock">
           <div class="dots"><i></i><i></i><i></i></div>
-          <img src="assets/case-grace-and-beauty.jpg" alt="" loading="lazy">
+          <div class="mock-art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><line x1="8" y1="7.5" x2="20" y2="12"/><line x1="8" y1="16.5" x2="20" y2="12"/></svg></div>
+          <div class="mock-bar"></div><div class="mock-bar short"></div>
         </div>
         <div class="case-mock">
           <div class="dots"><i></i><i></i><i></i></div>
-          <img src="assets/case-anna-dmytryshyna.jpg" alt="" loading="lazy">
+          <div class="mock-art"><svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2 14 10 22 12 14 14 12 22 10 14 2 12 10 10 Z"/></svg></div>
+          <div class="mock-bar"></div><div class="mock-bar short"></div>
         </div>
       </div>
     </div>
