@@ -146,13 +146,15 @@
     justify-content:space-between;
     height:76px;
   }
-  .brand{display:flex;align-items:center;gap:10px}
-  .brand span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand span{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.01em}
   .nav-links{display:flex;align-items:center;gap:36px}
-  .nav-links a{font-size:14.5px;font-weight:500;color:var(--muted);transition:color .15s ease}
-  .nav-links a:hover{color:var(--heading)}
-  .nav-actions{display:flex;align-items:center;gap:28px}
-  .nav-cta{display:inline-flex}
+  .nav-links a{font-size:14.5px;font-weight:500;color:var(--heading);opacity:.72;transition:opacity .15s ease}
+  .nav-links a:hover{opacity:1}
+  .nav-actions{display:flex;align-items:center;gap:24px}
+  .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:12px 20px 12px 22px}
+  .nav-cta svg{width:15px;height:15px;transition:transform .15s ease}
+  .nav-cta:hover svg{transform:translateX(3px)}
 
   .burger{display:none;width:32px;height:32px;position:relative;z-index:200}
   .burger span{
@@ -423,11 +425,11 @@
 
 <div id="intro" aria-hidden="true">
   <svg class="intro-logo" width="88" height="88" viewBox="0 0 44 44">
-    <circle cx="22" cy="22" r="21" fill="#000000" stroke="#C6FF00" stroke-opacity="0.35"/>
+    <circle cx="22" cy="22" r="21" fill="#161616" stroke="#C6FF00" stroke-width="1.4"/>
     <line class="intro-line" x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
     <line class="intro-line" x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round"/>
     <line class="intro-line" x1="7" y1="29" x2="14" y2="29" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
-    <polyline class="intro-chevron" points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline class="intro-chevron" points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
 </div>
 
@@ -435,11 +437,11 @@
   <div class="container">
     <a href="#top" class="brand">
       <svg width="36" height="36" viewBox="0 0 44 44" aria-hidden="true">
-        <circle cx="22" cy="22" r="21" fill="#000000" stroke="#C6FF00" stroke-opacity="0.35"/>
-        <line x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round" opacity="0.35"/>
-        <line x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round" opacity="0.6"/>
-        <line x1="7" y1="29" x2="14" y2="29" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round" opacity="0.35"/>
-        <polyline points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="22" cy="22" r="21" fill="#161616" stroke="#C6FF00" stroke-width="1.4"/>
+        <line x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round"/>
+        <line x1="7" y1="29" x2="14" y2="29" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
+        <polyline points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <span>Nezko</span>
     </a>
@@ -450,7 +452,7 @@
       <a href="#contacts">Контакти</a>
     </div>
     <div class="nav-actions">
-      <a href="#price" class="btn btn-primary nav-cta">Замовити сайт</a>
+      <a href="#price" class="btn btn-primary nav-cta">Замовити сайт<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
       <button class="burger" id="burger" aria-label="Меню"><span></span><span></span></button>
     </div>
   </div>
@@ -741,11 +743,11 @@
       <div class="footer-brand">
         <a href="#top" class="brand">
           <svg width="30" height="30" viewBox="0 0 44 44" aria-hidden="true">
-            <circle cx="22" cy="22" r="21" fill="#000000" stroke="#C6FF00" stroke-opacity="0.35"/>
-            <line x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round" opacity="0.35"/>
-            <line x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round" opacity="0.6"/>
-            <line x1="7" y1="29" x2="14" y2="29" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round" opacity="0.35"/>
-            <polyline points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="22" cy="22" r="21" fill="#161616" stroke="#C6FF00" stroke-width="1.4"/>
+            <line x1="7" y1="15" x2="14" y2="15" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="6" y1="22" x2="15" y2="22" stroke="#C6FF00" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="7" y1="29" x2="14" y2="29" stroke="#C6FF00" stroke-width="2.2" stroke-linecap="round"/>
+            <polyline points="18,13 29,22 18,31" fill="none" stroke="#C6FF00" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span>Nezko</span>
         </a>
