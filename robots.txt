@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nezko.studio/sitemap.xml
+Sitemap: https://grace-and-beauty.github.io/Nezko/sitemap.xml
