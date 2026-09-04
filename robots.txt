@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://grace-and-beauty.github.io/Nezko/sitemap.xml
+Sitemap: https://nezko.vercel.app/sitemap.xml
